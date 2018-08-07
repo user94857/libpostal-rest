@@ -2,7 +2,7 @@
 
 ## API Example
 
-Replace '<host>' with your host ip address
+'Replace <host> with your host ip address'
 
 ### Parser
 ### plain text in post body: no formatting type, just plaintext address:
