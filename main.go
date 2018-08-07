@@ -30,6 +30,9 @@ func main() {
 
         router := mux.NewRouter()
         router.HandleFunc("/health", HealthHandler).Methods("GET")
+        router.HandleFunc("/parser", ParserUrlHandler).Queries("address", "{address}", "language", "{language}", "country", "{country}").Methods("GET")
+        router.HandleFunc("/parser", ParserUrlHandler).Queries("address", "{address}", "country", "{country}").Methods("GET")
+        router.HandleFunc("/parser", ParserUrlHandler).Queries("address", "{address}", "language", "{language}").Methods("GET")
         router.HandleFunc("/parser", ParserUrlHandler).Queries("address", "{address}").Methods("GET")
         router.HandleFunc("/parser", ParserParamHandler).Queries("language", "{language}", "country", "{country}").Methods("POST")
         router.HandleFunc("/parser", ParserParamHandler).Queries("language", "{language}").Methods("POST")
@@ -71,7 +74,12 @@ func ParserUrlHandler(w http.ResponseWriter, r *http.Request) {
                 return
         }
 
-        parsed := parser.ParseAddress(address)
+        parser_options := parser.ParserOptions {
+                Language: language,
+                Country: country,
+        }
+
+        parsed := parser.ParseAddressOptions(address, parser_options)
         parseThing, _ := json.Marshal(parsed)
 
         w.Header().Set("Content-Type", "application/json")
