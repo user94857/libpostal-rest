@@ -2,7 +2,7 @@
 
 ## API Example
 
-Replace <host> with your host
+Replace '<host>' with your host ip address
 
 ### Parser
 ### plain text in post body: no formatting type, just plaintext address:
@@ -57,7 +57,7 @@ Replace <host> with your host
 
 
 ### Expand
-### plain text in post body: no formatting type, just plaintext address:
+### no formatting just plaintext address:
 `curl -X POST -d '100 main st buffalo ny' <host>:8080/expand`
 
 ** Response **
