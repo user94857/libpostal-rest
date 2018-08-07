@@ -45,6 +45,9 @@ Replace `<host>` with your host ip address
 ## Replace all non alpha numeric letters including white spaces with a comma. Except for - . _ / = that i've tested so far. Those characters are Ok. It seems to work just as well
 `curl -G <host>:8080/parser?address=100,main,st,buffalo,ny`
 
+In your browser:
+`http://<host>:8080/parser?address=100,main,st,buffalo,ny`
+
 ### Or
 `curl -G <host>:8080/parser?address=100,main,st,buffalo,ny&language=en`
 
