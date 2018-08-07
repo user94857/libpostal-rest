@@ -40,9 +40,9 @@ Replace `<host>` with your host ip address
 `curl -X POST -d '100 main st buffalo ny' <host>:8080/parser?language=en&country=us`
 
 ## NEW GET method
-## Due to the way mux handled encoded/decoded urls, I was unable to make it work with encoded urls
-## This meant that the address that is passed in with this method will not parse properly if you don't 'clean' the address
-## Replace all non alpha numeric letters including white spaces with a comma. Except for - . _ / = that i've tested so far. Those characters are ok
+## Due to the way mux handles encoded/decoded urls, I'm unable to use an encoded address in the url
+## This means the request will not parse properly if you don't 'clean' the address
+## Replace all non alpha numeric letters including white spaces with a comma. Except for - . _ / = that i've tested so far. Those characters are Ok. It seems to work just as well
 `curl -G <host>:8080/parser?address=100,main,st,buffalo,ny`
 
 ### Or
