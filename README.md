@@ -30,7 +30,7 @@ Replace `<host>` with your host ip address
 ]
 ```
 
-### Added options to the parser web api which will pass options to the libpostal library
+### Added options to this api which will be passed to the libpostal library
 `curl -X POST -d '100 main st buffalo ny' <host>:8080/parser?country=us`
 
 ### Or
