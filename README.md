@@ -5,7 +5,7 @@
 Replace `<host>` with your host ip address
 
 ### Parser
-### plain text in post body: no formatting type, just plaintext address:
+### plain text in post body:
 `curl -X POST -d '100 main st buffalo ny' <host>:8080/parser`
 
 ** Response **
@@ -30,7 +30,6 @@ Replace `<host>` with your host ip address
 ]
 ```
 
-### Parser
 ### Added options to the parser web api which will pass options to the libpostal library
 `curl -X POST -d '100 main st buffalo ny' <host>:8080/parser?country=us`
 
