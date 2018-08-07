@@ -5,7 +5,8 @@
 Replace <host> with your host
 
 ### Parser
-`curl -X POST -d '{"query": "100 main st buffalo ny"}' <host>:8080/parser`
+### plain text in post body: no formatting type, just plaintext address:
+`curl -X POST -d '100 main st buffalo ny' <host>:8080/parser`
 
 ** Response **
 ```
@@ -29,8 +30,35 @@ Replace <host> with your host
 ]
 ```
 
+### Parser
+### Added options to the parser web api which will pass options to the libpostal library
+`curl -X POST -d '100 main st buffalo ny' <host>:8080/parser?country=us`
+
+### Or
+`curl -X POST -d '100 main st buffalo ny' <host>:8080/parser?language=en`
+
+### Or
+`curl -X POST -d '100 main st buffalo ny' <host>:8080/parser?language=en&country=us`
+
+## NEW GET method
+## Due to the way mux handled encoded/decoded urls, I was unable to make it work with encoded urls
+## This meant that the address that is passed in with this method will not parse properly if you don't 'clean' the address
+## Replace all non alpha numeric letters including white spaces with a comma. Except for - . _ / = that i've tested so far. Those characters are ok
+`curl -G <host>:8080/parser?address=100,main,st,buffalo,ny`
+
+### Or
+`curl -G <host>:8080/parser?address=100,main,st,buffalo,ny&language=en`
+
+### Or
+`curl -G <host>:8080/parser?address=100,main,st,buffalo,ny&country=us`
+
+### Or
+`curl -G <host>:8080/parser?address=100,main,st,buffalo,ny&language=en&country=us`
+
+
 ### Expand
-`curl -X POST -d '{"query": "100 main st buffalo ny"}' <host>:8080/expand`
+### plain text in post body: no formatting type, just plaintext address:
+`curl -X POST -d '100 main st buffalo ny' <host>:8080/expand`
 
 ** Response **
 ```
