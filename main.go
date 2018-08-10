@@ -68,7 +68,9 @@ func HealthHandler(w http.ResponseWriter, r *http.Request) {
 func ParserUrlHandler(w http.ResponseWriter, r *http.Request) {
         vars := mux.Vars(r)
         address := vars[("address")]
-
+        language := vars[("language")]
+        country := vars[("country")]
+        
         if (len(address) == 0) {
                 http.Error(w, "Address cannot be empty", 500)
                 return
